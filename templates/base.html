@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Siddharth MV - Full Stack Developer, UI/UX Designer, and DevOps Enthusiast. Explore curated open-source projects, modern web applications, and Figma design systems.">
+    <title>{% block title %}Siddharth MV | Full Stack Developer & UI/UX Designer{% endblock %}</title>
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Outfit:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+
+    <!-- CSS -->
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/styles.css') }}?v=4">
+</head>
+
+<body>
+    <!-- Ambient Background Glows -->
+    <div class="ambient-glow glow-top-left" aria-hidden="true"></div>
+    <div class="ambient-glow glow-bottom-right" aria-hidden="true"></div>
+    <div class="ambient-glow glow-center" aria-hidden="true"></div>
+
+    <!-- Navigation -->
+    <header class="glass-header">
+        <nav class="navbar">
+            <a href="{{ url_for('index') }}" class="brand-logo" aria-label="Siddharth MV Home">
+                <span class="logo-mark">&lt;S/&gt;</span>
+                <span class="logo-text">Siddharth<span>MV</span></span>
+            </a>
+
+            <div class="nav-menu" id="navMenu">
+                <a href="{{ url_for('index') }}" class="nav-item {% if active_page == 'home' %}active{% endif %}">
+                    <span class="nav-indicator"></span>Home
+                </a>
+                <a href="{{ url_for('projects') }}" class="nav-item {% if active_page == 'projects' %}active{% endif %}">
+                    <span class="nav-indicator"></span>Projects
+                </a>
+                <a href="{{ url_for('skills') }}" class="nav-item {% if active_page == 'skills' %}active{% endif %}">
+                    <span class="nav-indicator"></span>Skills
+                </a>
+                <a href="{{ url_for('certifications') }}" class="nav-item {% if active_page == 'certifications' %}active{% endif %}">
+                    <span class="nav-indicator"></span>Certifications
+                </a>
+                <a href="{{ url_for('contact') }}" class="nav-item {% if active_page == 'contact' %}active{% endif %}">
+                    <span class="nav-indicator"></span>About Me
+                </a>
+                <a href="https://github.com/siddharthx29" target="_blank" rel="noopener noreferrer" class="nav-cta-btn">
+                    <svg class="icon-svg" viewBox="0 0 24 24" width="16" height="16" fill="currentColor">
+                        <path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0024 12c0-6.63-5.37-12-12-12z"/>
+                    </svg>
+                    <span>GitHub</span>
+                </a>
+            </div>
+
+            <!-- Mobile Hamburger Toggle -->
+            <button class="mobile-nav-toggle" id="mobileNavToggle" aria-label="Toggle navigation menu" aria-expanded="false">
+                <span class="bar bar-1"></span>
+                <span class="bar bar-2"></span>
+                <span class="bar bar-3"></span>
+            </button>
+        </nav>
+    </header>
+
+    <!-- Main Content -->
+    <main class="main-content-wrapper">
+        <div class="content-inner-container">
+            {% block content %}{% endblock %}
+        </div>
+    </main>
+
+    <!-- Glass Footer -->
+    <footer class="glass-footer">
+        <div class="footer-container">
+            <div class="footer-brand">
+                <div class="footer-logo">Siddharth<span>MV</span></div>
+                <p class="footer-tagline">Full Stack Developer & UI/UX Designer passionate about crafting responsive, performant, and delightful digital experiences.</p>
+            </div>
+
+            <div class="footer-links-group">
+                <h4>Navigation</h4>
+                <div class="footer-links-list">
+                    <a href="{{ url_for('index') }}">Home</a>
+                    <a href="{{ url_for('projects') }}">Projects</a>
+                    <a href="{{ url_for('skills') }}">Skills</a>
+                    <a href="{{ url_for('certifications') }}">Certifications</a>
+                    <a href="{{ url_for('contact') }}">About Me</a>
+                </div>
+            </div>
+
+            <div class="footer-social-group">
+                <h4>Connect</h4>
+                <div class="social-pills">
+                    <a href="https://github.com/siddharthx29" target="_blank" rel="noopener noreferrer" class="social-pill" aria-label="GitHub Profile">
+                        <svg class="icon-svg" viewBox="0 0 24 24" width="18" height="18" fill="currentColor">
+                            <path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0024 12c0-6.63-5.37-12-12-12z"/>
+                        </svg>
+                        <span>GitHub</span>
+                    </a>
+                    <a href="https://www.figma.com/file/FVWgtwVkiyFNgGoT14e8Wj/Siddharth-Assignment" target="_blank" rel="noopener noreferrer" class="social-pill" aria-label="Figma Portfolio">
+                        <svg class="icon-svg" viewBox="0 0 24 24" width="18" height="18" fill="currentColor">
+                            <path d="M8 24c2.21 0 4-1.79 4-4v-4H8c-2.21 0-4 1.79-4 4s1.79 4 4 4zm0-20C5.79 4 4 5.79 4 8s1.79 4 4 4h4V4H8zm8 0h-4v8h4c2.21 0 4-1.79 4-4s-1.79-4-4-4zm0 8h-4v8h4c2.21 0 4-1.79 4-4s-1.79-4-4-4zM8 12c-2.21 0-4 1.79-4 4s1.79 4 4 4h4v-8H8z"/>
+                        </svg>
+                        <span>Figma</span>
+                    </a>
+                    <a href="mailto:nsb566@gmail.com" class="social-pill" aria-label="Send Email">
+                        <svg class="icon-svg" viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/>
+                            <polyline points="22,6 12,13 2,6"/>
+                        </svg>
+                        <span>Email</span>
+                    </a>
+                </div>
+            </div>
+        </div>
+
+        <div class="footer-bottom">
+            <p>&copy; 2026 Siddharth MV. Built with Flask, Jinja & Glassmorphic Precision.</p>
+        </div>
+    </footer>
+
+    <!-- Global Interactive Script -->
+    <script>
+        // Mobile Navigation Toggle
+        const mobileNavToggle = document.getElementById('mobileNavToggle');
+        const navMenu = document.getElementById('navMenu');
+        
+        if (mobileNavToggle && navMenu) {
+            mobileNavToggle.addEventListener('click', () => {
+                const expanded = mobileNavToggle.getAttribute('aria-expanded') === 'true';
+                mobileNavToggle.setAttribute('aria-expanded', !expanded);
+                mobileNavToggle.classList.toggle('is-active');
+                navMenu.classList.toggle('is-open');
+                document.body.classList.toggle('nav-open');
+            });
+
+            // Close mobile menu on clicking any nav item
+            navMenu.querySelectorAll('.nav-item').forEach(item => {
+                item.addEventListener('click', () => {
+                    mobileNavToggle.setAttribute('aria-expanded', 'false');
+                    mobileNavToggle.classList.remove('is-active');
+                    navMenu.classList.remove('is-open');
+                    document.body.classList.remove('nav-open');
+                });
+            });
+        }
+
+        // Header scroll blur effect enhancement
+        window.addEventListener('scroll', () => {
+            const header = document.querySelector('.glass-header');
+            if (header) {
+                if (window.scrollY > 20) {
+                    header.classList.add('scrolled');
+                } else {
+                    header.classList.remove('scrolled');
+                }
+            }
+        });
+    </script>
+
+    {% block extra_scripts %}{% endblock %}
+</body>
+
+</html>
