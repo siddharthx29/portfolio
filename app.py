@@ -1,5 +1,5 @@
 import os
-from flask import Flask, render_template, request
+from flask import Flask, render_template, request, redirect
 
 # Get the absolute path to the directory where this script is located
 basedir = os.path.abspath(os.path.dirname(__file__))
@@ -261,6 +261,9 @@ SKILLS_DATA = {
     }
 }
 
+# Google Drive Certificate Archive Link
+CERTIFICATES_DRIVE_LINK = "https://drive.google.com/drive/folders/1CFHkPI88lUc2VL5dO8tsH-Qf7kNLfTF2?usp=drive_link"
+
 # Authentic certifications
 CERTIFICATIONS_DATA = [
     {
@@ -268,42 +271,48 @@ CERTIFICATIONS_DATA = [
         "issuer": "Tutedude",
         "date": "October 2025",
         "badge": "DevOps & Cloud",
-        "desc": "Comprehensive training covering CI/CD pipelines, Docker containerization, Jenkins automation, and cloud deployments."
+        "desc": "Comprehensive training covering CI/CD pipelines, Docker containerization, Jenkins automation, and cloud deployments.",
+        "drive_link": CERTIFICATES_DRIVE_LINK
     },
     {
         "title": "UI/UX Design Certification",
         "issuer": "Tutedude",
         "date": "September 2024",
         "badge": "Design & UI/UX",
-        "desc": "Hands-on certification in design systems, user flows, wireframing, high-fidelity UI layout, and interactive Figma prototyping."
+        "desc": "Hands-on certification in design systems, user flows, wireframing, high-fidelity UI layout, and interactive Figma prototyping.",
+        "drive_link": CERTIFICATES_DRIVE_LINK
     },
     {
         "title": "Data Analytics Essentials",
         "issuer": "Cisco Networking Academy",
         "date": "July 26, 2024",
         "badge": "Data Analytics",
-        "desc": "Foundational certification in data analysis methodologies, statistical interpretation, data quality, and analytical problem solving."
+        "desc": "Foundational certification in data analysis methodologies, statistical interpretation, data quality, and analytical problem solving.",
+        "drive_link": CERTIFICATES_DRIVE_LINK
     },
     {
         "title": "Web Development Internship",
         "issuer": "Teachnook / Immensphere",
         "date": "September 23, 2022",
         "badge": "Full Stack",
-        "desc": "Practical web development internship building interactive frontends, backend APIs, and responsive web applications."
+        "desc": "Practical web development internship building interactive frontends, backend APIs, and responsive web applications.",
+        "drive_link": CERTIFICATES_DRIVE_LINK
     },
     {
         "title": "Web Development Course",
         "issuer": "Teachnook",
         "date": "September 23, 2022",
         "badge": "Web Engineering",
-        "desc": "Training in modern web architectures, semantic HTML5, CSS layout systems, and JavaScript client logic."
+        "desc": "Training in modern web architectures, semantic HTML5, CSS layout systems, and JavaScript client logic.",
+        "drive_link": CERTIFICATES_DRIVE_LINK
     },
     {
         "title": "Build a Full Website Using WordPress",
         "issuer": "Coursera",
         "date": "December 20, 2023",
         "badge": "CMS & Web",
-        "desc": "Hands-on guided project building custom website architecture, theme customization, and content management structures."
+        "desc": "Hands-on guided project building custom website architecture, theme customization, and content management structures.",
+        "drive_link": CERTIFICATES_DRIVE_LINK
     }
 ]
 
@@ -332,7 +341,12 @@ def skills():
 
 @app.route("/certifications")
 def certifications():
-    return render_template("certifications.html", certifications=CERTIFICATIONS_DATA, active_page="certifications")
+    return render_template("certifications.html", certifications=CERTIFICATIONS_DATA, drive_link=CERTIFICATES_DRIVE_LINK, active_page="certifications")
+
+@app.route("/certifications/drive")
+@app.route("/certifications/explore")
+def certifications_drive():
+    return redirect(CERTIFICATES_DRIVE_LINK)
 
 @app.route("/contact me")
 def contact():

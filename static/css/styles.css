@@ -1217,11 +1217,52 @@ a {
 /* --------------------------------------------------------------------------
    CERTIFICATIONS SECTION
    -------------------------------------------------------------------------- */
+.cert-header-actions {
+    margin-top: 24px;
+    display: flex;
+    justify-content: center;
+}
+
+.btn-drive-action {
+    background: linear-gradient(135deg, rgba(250, 204, 21, 0.15) 0%, rgba(234, 179, 8, 0.08) 100%);
+    color: #fef08a;
+    border: 1px solid rgba(250, 204, 21, 0.4);
+    backdrop-filter: var(--glass-blur);
+    -webkit-backdrop-filter: var(--glass-blur);
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.35), 0 0 15px rgba(250, 204, 21, 0.12);
+    font-weight: 600;
+    padding: 13px 26px;
+    border-radius: var(--radius-pill);
+    gap: 10px;
+}
+
+.btn-drive-action:hover {
+    background: linear-gradient(135deg, rgba(250, 204, 21, 0.25) 0%, rgba(234, 179, 8, 0.15) 100%);
+    border-color: var(--accent-gold);
+    color: #ffffff;
+    box-shadow: 0 6px 28px rgba(0, 0, 0, 0.45), 0 0 25px rgba(250, 204, 21, 0.3);
+    transform: translateY(-2px);
+}
+
+.btn-drive-action .drive-folder-icon {
+    color: var(--accent-gold);
+}
+
+.btn-drive-action .btn-external-icon {
+    opacity: 0.75;
+    transition: transform var(--transition-fast);
+}
+
+.btn-drive-action:hover .btn-external-icon {
+    transform: translate(2px, -2px);
+    opacity: 1;
+}
+
 .certifications-grid {
     display: grid;
     grid-template-columns: repeat(auto-fill, minmax(340px, 1fr));
     gap: 24px;
-    margin-bottom: 80px;
+    margin-bottom: 48px;
 }
 
 .certification-glass-card {
@@ -1229,6 +1270,14 @@ a {
     display: flex;
     flex-direction: column;
     gap: 16px;
+    position: relative;
+    transition: all var(--transition-normal);
+}
+
+.certification-glass-card:hover {
+    border-color: rgba(250, 204, 21, 0.35);
+    transform: translateY(-4px);
+    box-shadow: var(--glass-inner-highlight), 0 16px 36px rgba(0, 0, 0, 0.45), 0 0 20px rgba(250, 204, 21, 0.1);
 }
 
 .cert-meta-bar {
@@ -1283,6 +1332,10 @@ a {
 .cert-footer {
     padding-top: 14px;
     border-top: 1px solid rgba(255, 255, 255, 0.06);
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 12px;
 }
 
 .cert-date {
@@ -1291,6 +1344,105 @@ a {
     gap: 6px;
     font-size: 13px;
     color: var(--text-muted);
+}
+
+.cert-action-link {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    font-size: 12px;
+    font-weight: 600;
+    color: var(--accent-gold);
+    background: rgba(250, 204, 21, 0.08);
+    border: 1px solid rgba(250, 204, 21, 0.2);
+    padding: 5px 12px;
+    border-radius: var(--radius-pill);
+    text-decoration: none;
+    transition: all var(--transition-fast);
+}
+
+.cert-action-link:hover {
+    background: rgba(250, 204, 21, 0.18);
+    border-color: var(--accent-gold);
+    color: #ffffff;
+    box-shadow: 0 0 12px var(--accent-glow);
+    transform: translateY(-1px);
+}
+
+.cert-action-link svg {
+    transition: transform var(--transition-fast);
+}
+
+.cert-action-link:hover svg {
+    transform: translate(2px, -2px);
+}
+
+/* Certifications Google Drive Callout Banner */
+.cert-drive-banner {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 28px;
+    padding: 30px 36px;
+    margin-bottom: 80px;
+    background: linear-gradient(135deg, rgba(30, 41, 59, 0.7) 0%, rgba(15, 23, 42, 0.85) 100%);
+    border: 1px solid rgba(250, 204, 21, 0.25);
+    border-radius: var(--radius-lg);
+    box-shadow: 0 16px 40px rgba(0, 0, 0, 0.4), inset 0 1px 0 rgba(255, 255, 255, 0.1);
+}
+
+.cert-banner-content {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+}
+
+.banner-icon-box {
+    width: 56px;
+    height: 56px;
+    border-radius: var(--radius-md);
+    background: rgba(250, 204, 21, 0.1);
+    border: 1px solid rgba(250, 204, 21, 0.3);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--accent-gold);
+    flex-shrink: 0;
+    box-shadow: 0 0 18px rgba(250, 204, 21, 0.15);
+}
+
+.banner-text h3 {
+    font-size: 18px;
+    font-weight: 700;
+    color: #ffffff;
+    margin-bottom: 4px;
+}
+
+.banner-text p {
+    font-size: 14px;
+    color: var(--text-secondary);
+    line-height: 1.5;
+    margin: 0;
+}
+
+.banner-cta-btn {
+    flex-shrink: 0;
+    padding: 12px 24px;
+    font-size: 14px;
+}
+
+@media (max-width: 768px) {
+    .cert-drive-banner {
+        flex-direction: column;
+        align-items: flex-start;
+        padding: 24px;
+        gap: 20px;
+    }
+
+    .banner-cta-btn {
+        width: 100%;
+        justify-content: center;
+    }
 }
 
 /* --------------------------------------------------------------------------
