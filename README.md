@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 # 💼 Personal Portfolio Website
 
 ## 📌 Overview
@@ -45,3 +46,6 @@ Example: In deployment
 - (Optional) Hosting: Netlify / Vercel / GitHub Pages  
 
 ---
+=======
+# portfolio
+>>>>>>> 59476f94934a10c2f6c5285dc497b6e174d945d3
