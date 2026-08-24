@@ -1,5 +1,5 @@
 import os
-from flask import Flask, render_template, request, redirect
+from flask import Flask, render_template, request, redirect, send_file, abort
 
 # Get the absolute path to the directory where this script is located
 basedir = os.path.abspath(os.path.dirname(__file__))
@@ -348,9 +348,29 @@ def certifications():
 def certifications_drive():
     return redirect(CERTIFICATES_DRIVE_LINK)
 
+@app.route("/contact")
 @app.route("/contact me")
 def contact():
     return render_template("contact&about me.html", active_page="contact")
+
+@app.route("/download-ui-pdf")
+@app.route("/download-pdf")
+def download_pdf():
+    pdf_path = os.path.join(basedir, "static", "docs", "Portfolio_UI_Traceability_Report.pdf")
+    if not os.path.exists(pdf_path):
+        pdf_path = os.path.join(basedir, "Portfolio_UI_Traceability_Report.pdf")
+    if os.path.exists(pdf_path):
+        return send_file(pdf_path, as_attachment=True, download_name="Portfolio_UI_Traceability_Report.pdf")
+    return abort(404, description="PDF report not found.")
+
+@app.route("/view-ui-pdf")
+def view_pdf():
+    pdf_path = os.path.join(basedir, "static", "docs", "Portfolio_UI_Traceability_Report.pdf")
+    if not os.path.exists(pdf_path):
+        pdf_path = os.path.join(basedir, "Portfolio_UI_Traceability_Report.pdf")
+    if os.path.exists(pdf_path):
+        return send_file(pdf_path, mimetype="application/pdf")
+    return abort(404, description="PDF report not found.")
 
 if __name__ == "__main__":
     app.run(debug=True)

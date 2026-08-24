@@ -1,220 +1,153 @@
 {% extends "base.html" %}
 
-{% block title %}About Me & Contact | Siddharth MV – Full Stack Developer & UI/UX Designer{% endblock %}
+{% block title %}SYS.MV // About Me & Contact Console{% endblock %}
 
 {% block content %}
 
-<!-- Background Video (Subtle Ambient) -->
-<div class="video-container about-video-container">
-    <video class="bg-video" autoplay muted loop playsinline poster="{{ url_for('static', filename='css/styles.css') }}">
-        <source src="{{ url_for('static', filename='videos/hero.mp4') }}" type="video/mp4">
-    </video>
-    <div class="video-glass-overlay"></div>
-    <div class="video-mesh-gradient"></div>
+<div class="page-header-container">
+    <div class="section-badge">// PROFILE & TELEMETRY CONSOLE</div>
+    <h1 class="page-main-title">ABOUT & <span class="accent-yellow-text">CONTACT</span></h1>
+    <p class="page-subtitle">
+        Curious Learner &bull; MCA Scholar &bull; Full Stack Developer &bull; UI/UX Designer
+    </p>
 </div>
 
-<div class="about-page-wrapper">
-
-    <!-- Header -->
-    <div class="page-header-container">
-        <div class="section-badge">Background & Vision</div>
-        <h1 class="page-main-title">About <span class="accent-glow-text">Siddharth MV</span></h1>
-        <p class="page-subtitle">
-            Curious Learner &bull; MCA Scholar &bull; Full Stack Developer &bull; UI/UX Designer
-        </p>
-    </div>
-
-    <!-- Main About Grid Layout -->
-    <div class="about-grid-layout">
+<div class="about-grid-layout">
+    
+    <!-- Left Column: Biography & Innovation Concepts -->
+    <div class="about-left-col">
         
-        <!-- Left Column: Biography & Core Narrative -->
-        <div class="about-left-col">
-            
-            <!-- Hero Bio Card -->
-            <div class="about-glass-card glass-panel profile-bio-card">
-                <div class="bio-header">
-                    <div class="avatar-glass-badge">
-                        <span class="avatar-initials">SM</span>
-                    </div>
-                    <div>
-                        <h2 class="bio-name">Siddharth MV</h2>
-                        <p class="bio-role">Full Stack Developer & UI/UX Designer</p>
-                        <p class="bio-location">
-                            <svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                                <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path>
-                                <circle cx="12" cy="10" r="3"></circle>
-                            </svg>
-                            Rajagiri College, Kerala
-                        </p>
-                    </div>
+        <!-- Hero Bio Card -->
+        <div class="profile-bio-card">
+            <div class="bio-header">
+                <div class="avatar-glass-badge">
+                    <span class="avatar-initials">SM</span>
                 </div>
-
-                <div class="bio-body">
-                    <p class="bio-paragraph">
-                        Hello! I am <strong>Siddharth MV</strong>, currently pursuing my <strong>Master of Computer Applications (MCA)</strong> at <strong>Rajagiri College</strong>, Kerala. I have a deep passion for full-stack software development, architectural design, and crafting intuitive user experiences that bridge complex technological systems with real-world human needs.
-                    </p>
-                    <p class="bio-paragraph">
-                        My development methodology pairs backend engineering rigor (Python, Django, PostgreSQL, REST APIs) with refined UI/UX design execution (Figma, user journeys, design systems). Whether architecting open-source systems or refining micro-interactions, I focus on precision, security, and performance.
+                <div>
+                    <h2 class="bio-name">SIDDHARTH MV</h2>
+                    <p class="bio-role">// Full Stack Developer & UI/UX Designer</p>
+                    <p class="bio-location">
+                        <svg viewBox="0 0 24 24" width="13" height="13" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path>
+                            <circle cx="12" cy="10" r="3"></circle>
+                        </svg>
+                        Rajagiri College, Kerala
                     </p>
                 </div>
-
-                <div class="bio-quick-links">
-                    <a href="https://github.com/siddharthx29" target="_blank" rel="noopener noreferrer" class="social-pill">
-                        <svg viewBox="0 0 24 24" width="16" height="16" fill="currentColor">
-                            <path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0024 12c0-6.63-5.37-12-12-12z"/>
-                        </svg>
-                        <span>github.com/siddharthx29</span>
-                    </a>
-                    <a href="https://www.figma.com/file/FVWgtwVkiyFNgGoT14e8Wj/Siddharth-Assignment" target="_blank" rel="noopener noreferrer" class="social-pill">
-                        <svg viewBox="0 0 24 24" width="16" height="16" fill="currentColor">
-                            <path d="M8 24c2.21 0 4-1.79 4-4v-4H8c-2.21 0-4 1.79-4 4s1.79 4 4 4zm0-20C5.79 4 4 5.79 4 8s1.79 4 4 4h4V4H8zm8 0h-4v8h4c2.21 0 4-1.79 4-4s-1.79-4-4-4zm0 8h-4v8h4c2.21 0 4-1.79 4-4s-1.79-4-4-4zM8 12c-2.21 0-4 1.79-4 4s1.79 4 4 4h4v-8H8z"/>
-                        </svg>
-                        <span>Figma Showcase</span>
-                    </a>
-                </div>
             </div>
 
-            <!-- Featured Concept Card: MetaMetro -->
-            <div class="about-glass-card glass-panel concept-panel">
-                <div class="panel-tag-header">
-                    <span class="concept-badge">💡 Innovation Concept</span>
-                    <h3 class="concept-title">MetaMetro – Intelligent Transit System</h3>
-                </div>
-                <p class="concept-desc">
-                    One of my notable engineering concepts is <strong>MetaMetro</strong> — a next-generation urban transit intelligence platform designed to provide real-time train positioning, commuter crowd density forecasting via predictive algorithms, and an automated Lost & Found claims registry.
+            <div class="bio-body">
+                <p class="bio-paragraph">
+                    Hello! I am <strong>Siddharth MV</strong>, currently pursuing my <strong>Master of Computer Applications (MCA)</strong> at <strong>Rajagiri College</strong>, Kerala. I have a deep passion for full-stack software development, architectural design, and crafting intuitive user experiences that bridge complex technological systems with real-world human needs.
                 </p>
-                <div class="concept-tags">
-                    <span>Live Tracking</span>
-                    <span>Density Prediction</span>
-                    <span>Incident Handling</span>
-                </div>
-            </div>
-
-            <!-- Personal Journey & Philosophy -->
-            <div class="about-glass-card glass-panel">
-                <h3 class="card-section-title">
-                    <span class="title-icon">🌱</span> Continuous Evolution
-                </h3>
-                <p class="section-text">
-                    My engineering journey has reinforced that impactful development stems from embracing challenges as iterative feedback loops. I prioritize discipline, intellectual curiosity, clean code practices, and relentless incremental improvement in every project I build.
+                <p class="bio-paragraph">
+                    My development methodology pairs backend engineering rigor (Python, Django, PostgreSQL, REST APIs) with refined UI/UX design execution (Figma, user journeys, design systems). Whether architecting open-source systems or refining micro-interactions, I focus on precision, security, and performance.
                 </p>
             </div>
 
-            <!-- Career Vision -->
-            <div class="about-glass-card glass-panel goal-card">
-                <h3 class="card-section-title">
-                    <span class="title-icon">🎯</span> Career Vision
-                </h3>
-                <p class="section-text">
-                    To excel as a high-performing full-stack engineer and product designer, collaborating with forward-thinking teams to architect scalable, resilient web platforms and delightful digital interfaces.
-                </p>
+            <div class="bio-quick-links">
+                <a href="https://github.com/siddharthx29" target="_blank" rel="noopener noreferrer" class="social-pill">
+                    <span>[ GITHUB: @siddharthx29 ] ↗</span>
+                </a>
+                <a href="https://www.figma.com/file/FVWgtwVkiyFNgGoT14e8Wj/Siddharth-Assignment" target="_blank" rel="noopener noreferrer" class="social-pill">
+                    <span>[ FIGMA: PROTOTYPES ] ↗</span>
+                </a>
             </div>
-
         </div>
 
-        <!-- Right Column: Education Timeline & Contact Form -->
-        <div class="about-right-col">
-            
-            <!-- Education Timeline Card -->
-            <div class="about-glass-card glass-panel">
-                <h3 class="card-section-title">
-                    <span class="title-icon">🎓</span> Academic Timeline
-                </h3>
+        <!-- Featured Concept Card: MetaMetro -->
+        <div class="concept-panel">
+            <div class="panel-tag-header">
+                <span class="concept-badge">// INNOVATION CONCEPT</span>
+            </div>
+            <h3 class="concept-title">METAMETRO // REAL-TIME TRANSIT INTELLIGENCE</h3>
+            <p class="concept-desc">
+                An innovative transit navigation concept designed for urban commuters, featuring live coach crowd density indicators, dynamic route disruption recalculation, accessibility assistance, and seamless digital fare integration.
+            </p>
+            <div class="tags-wrap">
+                <span class="tech-tag-pill">[ SMART CITY ]</span>
+                <span class="tech-tag-pill">[ REAL-TIME IOT ]</span>
+                <span class="tech-tag-pill">[ ACCESSIBLE UX ]</span>
+            </div>
+        </div>
 
-                <div class="timeline-container">
+    </div>
+
+    <!-- Right Column: Interactive Contact Command Console -->
+    <div class="about-right-col">
+        
+        <!-- Contact Console Panel -->
+        <div class="contact-form-panel">
+            <div class="terminal-header">
+                <div class="terminal-dots">
+                    <span class="terminal-dot dot-red"></span>
+                    <span class="terminal-dot dot-yellow"></span>
+                    <span class="terminal-dot dot-green"></span>
+                </div>
+                <span class="terminal-title">ENDPOINT::POST /api/v1/contact</span>
+            </div>
+
+            <div class="contact-form-body">
+                <form id="contactForm" onsubmit="event.preventDefault(); handleContactSubmit();">
                     
-                    <div class="timeline-item active-timeline">
-                        <div class="timeline-marker"></div>
-                        <div class="timeline-content">
-                            <span class="timeline-badge">In Progress</span>
-                            <h4 class="timeline-degree">MCA (Master of Computer Applications)</h4>
-                            <p class="timeline-institution">Rajagiri College of Social Sciences, Kerala</p>
-                            <p class="timeline-detail">Advanced coursework in software architecture, distributed systems, web technologies, and database design.</p>
-                        </div>
+                    <div class="contact-form-group">
+                        <label class="contact-label" for="contactName">// SENDER_NAME *</label>
+                        <input type="text" id="contactName" class="contact-input" placeholder="e.g. Alex Morgan" required>
                     </div>
 
-                    <div class="timeline-item">
-                        <div class="timeline-marker"></div>
-                        <div class="timeline-content">
-                            <span class="timeline-badge badge-past">Graduated</span>
-                            <h4 class="timeline-degree">BCA (Bachelor of Computer Applications)</h4>
-                            <p class="timeline-institution">Undergraduate Degree in Computer Applications</p>
-                            <p class="timeline-detail">Comprehensive foundation in data structures, OOP programming, relational databases, and web fundamentals.</p>
-                        </div>
+                    <div class="contact-form-group">
+                        <label class="contact-label" for="contactEmail">// SENDER_EMAIL *</label>
+                        <input type="email" id="contactEmail" class="contact-input" placeholder="e.g. alex@organization.com" required>
                     </div>
 
-                    <div class="timeline-item">
-                        <div class="timeline-marker"></div>
-                        <div class="timeline-content">
-                            <span class="timeline-badge badge-past">Senior Secondary</span>
-                            <h4 class="timeline-degree">Class XII (CBSE Board)</h4>
-                            <p class="timeline-institution">Kendriya Vidyalaya No. 2, Vasco, Goa</p>
-                        </div>
+                    <div class="contact-form-group">
+                        <label class="contact-label" for="contactSubject">// TRANSMISSION_SUBJECT</label>
+                        <input type="text" id="contactSubject" class="contact-input" placeholder="e.g. Full-Stack / UI/UX Project Collaboration">
                     </div>
 
-                    <div class="timeline-item">
-                        <div class="timeline-marker"></div>
-                        <div class="timeline-content">
-                            <span class="timeline-badge badge-past">Secondary</span>
-                            <h4 class="timeline-degree">Class X (CBSE Board)</h4>
-                            <p class="timeline-institution">Kendriya Vidyalaya No. 1, Vasco, Goa</p>
-                        </div>
+                    <div class="contact-form-group">
+                        <label class="contact-label" for="contactMessage">// TRANSMISSION_PAYLOAD (MESSAGE) *</label>
+                        <textarea id="contactMessage" class="contact-textarea" rows="4" placeholder="Type your message, query, or project brief here..." required></textarea>
                     </div>
 
-                </div>
-            </div>
-
-            <!-- Interactive Contact Card -->
-            <div class="about-glass-card glass-panel contact-card-panel" id="contactSection">
-                <div class="contact-header">
-                    <h3 class="card-section-title">
-                        <span class="title-icon">📬</span> Get in Touch
-                    </h3>
-                    <p class="contact-intro">
-                        Have a project in mind, an opportunity to discuss, or want to collaborate on software design? Send me a message below.
-                    </p>
-                </div>
-
-                <form class="glass-contact-form" action="mailto:nsb566@gmail.com" method="post" enctype="text/plain">
-                    <div class="form-group">
-                        <label for="contactName" class="form-label">Full Name</label>
-                        <input type="text" id="contactName" name="name" class="form-input" placeholder="e.g. Alex Morgan" required>
+                    <div id="contactSuccessMsg" class="form-status-alert alert-success">
+                        &check; TRANSMISSION TRANSMITTED SUCCESSFULLY // ACK RECEIVED.
                     </div>
 
-                    <div class="form-group">
-                        <label for="contactEmail" class="form-label">Email Address</label>
-                        <input type="email" id="contactEmail" name="email" class="form-input" placeholder="e.g. alex@example.com" required>
-                    </div>
-
-                    <div class="form-group">
-                        <label for="contactSubject" class="form-label">Subject</label>
-                        <input type="text" id="contactSubject" name="subject" class="form-input" placeholder="Project Inquiry / Role Opportunity" required>
-                    </div>
-
-                    <div class="form-group">
-                        <label for="contactMessage" class="form-label">Message</label>
-                        <textarea id="contactMessage" name="message" rows="5" class="form-textarea" placeholder="Tell me about your project, timeline, or question..." required></textarea>
-                    </div>
-
-                    <button type="submit" class="btn btn-primary btn-full-width">
-                        <span>Send Message</span>
-                        <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                            <line x1="22" y1="2" x2="11" y2="13"></line>
-                            <polygon points="22 2 15 22 11 13 2 9 22 2"></polygon>
-                        </svg>
+                    <button type="submit" class="btn btn-primary" style="width: 100%;">
+                        <span>[ TRANSMIT_MESSAGE: SEND ] &rarr;</span>
                     </button>
+
                 </form>
-
-                <div class="direct-email-box">
-                    <span class="direct-label">Or email directly:</span>
-                    <a href="mailto:nsb566@gmail.com" class="direct-link">nsb566@gmail.com</a>
-                </div>
             </div>
+        </div>
 
+        <!-- Direct Connect Quick Info -->
+        <div class="hud-card">
+            <h4 style="font-family: var(--font-mono); font-size: 0.85rem; color: var(--accent-yellow); margin-bottom: 12px;">// DIRECT_CHANNELS</h4>
+            <div style="font-family: var(--font-mono); font-size: 0.84rem; color: var(--text-secondary); line-height: 1.8;">
+                <div>EMAIL: <a href="mailto:nsb566@gmail.com" style="color: var(--text-white); text-decoration: none;">nsb566@gmail.com</a></div>
+                <div>LOCATION: Kerala, India (UTC+05:30)</div>
+                <div>RESPONSE_TIME: &lt; 24 Hours</div>
+            </div>
         </div>
 
     </div>
 
 </div>
+
+<!-- Contact Console Script -->
+<script>
+    function handleContactSubmit() {
+        const successMsg = document.getElementById('contactSuccessMsg');
+        if (successMsg) {
+            successMsg.style.display = 'block';
+            document.getElementById('contactForm').reset();
+            setTimeout(() => {
+                successMsg.style.display = 'none';
+            }, 6000);
+        }
+    }
+</script>
 
 {% endblock %}

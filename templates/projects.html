@@ -1,14 +1,14 @@
 {% extends "base.html" %}
 
-{% block title %}Projects | Siddharth MV – Full Stack & UI/UX Portfolio{% endblock %}
+{% block title %}SYS.MV // Projects – Full Stack & UI/UX Systems{% endblock %}
 
 {% block content %}
 
 <div class="page-header-container">
-    <div class="section-badge">Curated Showcase</div>
-    <h1 class="page-main-title">Featured <span class="accent-glow-text">Projects</span></h1>
+    <div class="section-badge">// CURATED CODEBASE & PROTOTYPES</div>
+    <h1 class="page-main-title">FEATURED <span class="accent-yellow-text">PROJECTS</span></h1>
     <p class="page-subtitle">
-        A curated selection of production web applications, open-source software, cloud utilities, and high-fidelity UI/UX design prototypes.
+        A curated archive of full-stack web applications, open-source software, cloud utilities, and high-fidelity UI/UX design systems.
     </p>
 </div>
 
@@ -17,7 +17,7 @@
     <div class="filter-pill-group">
         {% for cat in categories %}
         <button class="filter-btn {% if cat.slug == 'all' %}active{% endif %}" data-filter="{{ cat.slug }}">
-            {{ cat.name }}
+            [ {{ cat.name|upper }} ]
         </button>
         {% endfor %}
     </div>
@@ -26,31 +26,31 @@
 <!-- Projects Grid -->
 <div class="projects-grid" id="projectsGrid">
     {% for p in projects %}
-    <div class="project-glass-card {% if p.is_design %}design-featured-card{% endif %}" data-category="{{ p.category_slug }}">
+    <div class="project-glass-card" data-category="{{ p.category_slug }}">
         
-        <!-- Card Top Bar: Category & Indicators -->
+        <!-- Card Top Bar: Category & Status Indicators -->
         <div class="card-meta-bar">
             <span class="category-badge {% if p.is_design %}badge-figma{% endif %}">
                 {% if p.is_design %}
-                <svg viewBox="0 0 24 24" width="12" height="12" fill="currentColor">
+                <svg viewBox="0 0 24 24" width="12" height="12" fill="currentColor" style="display:inline-block; vertical-align:middle; margin-right:4px;">
                     <path d="M8 24c2.21 0 4-1.79 4-4v-4H8c-2.21 0-4 1.79-4 4s1.79 4 4 4zm0-20C5.79 4 4 5.79 4 8s1.79 4 4 4h4V4H8zm8 0h-4v8h4c2.21 0 4-1.79 4-4s-1.79-4-4-4zm0 8h-4v8h4c2.21 0 4-1.79 4-4s-1.79-4-4-4zM8 12c-2.21 0-4 1.79-4 4s1.79 4 4 4h4v-8H8z"/>
                 </svg>
                 {% endif %}
-                {{ p.category }}
+                {{ p.category|upper }}
             </span>
             
             <div class="card-status-indicators">
                 {% if p.demo_link and not p.is_design %}
-                <span class="status-indicator live-indicator" title="Live Deployment Available">
-                    <span class="pulse-dot"></span> Live
+                <span class="status-indicator" title="Live Deployment Available">
+                    <span class="pulse-dot"></span> LIVE
                 </span>
                 {% elif p.is_design %}
-                <span class="status-indicator figma-indicator" title="Figma Interactive Prototype">
-                    <span class="figma-dot"></span> Prototype
+                <span class="status-indicator" title="Figma Interactive Prototype">
+                    <span class="figma-dot"></span> PROTOTYPE
                 </span>
                 {% else %}
-                <span class="status-indicator code-indicator" title="Open Source Codebase">
-                    Source
+                <span class="status-indicator" title="Open Source Codebase">
+                    SOURCE
                 </span>
                 {% endif %}
             </div>
@@ -59,262 +59,79 @@
         <!-- Project Header -->
         <div class="card-title-area">
             <h3 class="project-title">{{ p.title }}</h3>
-            {% if p.is_design %}
-            <span class="design-pill">Figma UI/UX Assignment</span>
-            {% endif %}
         </div>
 
         <!-- Description -->
-        <p class="project-desc">{{ p.desc }}</p>
+        <p class="project-summary">{{ p.desc }}</p>
+
+        <!-- Feature Highlights -->
+        {% if p.highlights %}
+        <ul class="highlights-list">
+            {% for hl in p.highlights[:2] %}
+            <li class="highlight-item">{{ hl }}</li>
+            {% endfor %}
+        </ul>
+        {% endif %}
 
         <!-- Tech Stack Tags -->
-        <div class="tech-tag-wrap">
+        <div class="tags-wrap">
             {% for tag in p.tags %}
-            <span class="tech-tag">{{ tag }}</span>
+            <span class="tech-tag-pill">[ {{ tag|upper }} ]</span>
             {% endfor %}
         </div>
 
-        <!-- Action Buttons -->
-        <div class="card-actions">
+        <!-- Action Links -->
+        <div class="card-actions-row">
             {% if p.figma_link %}
-            <a href="{{ p.figma_link }}" target="_blank" rel="noopener noreferrer" class="card-btn btn-figma">
-                <svg viewBox="0 0 24 24" width="14" height="14" fill="currentColor">
+            <a href="{{ p.figma_link }}" target="_blank" rel="noopener noreferrer" class="action-hud-link" title="Open Figma Prototype">
+                <svg viewBox="0 0 24 24" width="13" height="13" fill="currentColor">
                     <path d="M8 24c2.21 0 4-1.79 4-4v-4H8c-2.21 0-4 1.79-4 4s1.79 4 4 4zm0-20C5.79 4 4 5.79 4 8s1.79 4 4 4h4V4H8zm8 0h-4v8h4c2.21 0 4-1.79 4-4s-1.79-4-4-4zm0 8h-4v8h4c2.21 0 4-1.79 4-4s-1.79-4-4-4zM8 12c-2.21 0-4 1.79-4 4s1.79 4 4 4h4v-8H8z"/>
                 </svg>
-                <span>View Figma Design</span>
+                <span>[ FIGMA_PROTOTYPE ] ↗</span>
             </a>
             {% endif %}
 
             {% if p.demo_link and not p.is_design %}
-            <a href="{{ p.demo_link }}" target="_blank" rel="noopener noreferrer" class="card-btn btn-live">
-                <svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                    <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path>
-                    <polyline points="15 3 21 3 21 9"></polyline>
-                    <line x1="10" y1="14" x2="21" y2="3"></line>
-                </svg>
-                <span>Live Demo</span>
+            <a href="{{ p.demo_link }}" target="_blank" rel="noopener noreferrer" class="action-hud-link">
+                <span>[ LIVE_DEMO ] ↗</span>
             </a>
             {% endif %}
 
             {% if p.github_link %}
-            <a href="{{ p.github_link }}" target="_blank" rel="noopener noreferrer" class="card-btn btn-github">
-                <svg viewBox="0 0 24 24" width="14" height="14" fill="currentColor">
-                    <path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0024 12c0-6.63-5.37-12-12-12z"/>
-                </svg>
-                <span>GitHub</span>
+            <a href="{{ p.github_link }}" target="_blank" rel="noopener noreferrer" class="action-hud-outline">
+                <span>[ GITHUB_SOURCE ] ↗</span>
             </a>
             {% endif %}
-
-            <!-- Quick Details Modal Trigger -->
-            <button type="button" class="card-btn btn-details modal-trigger" data-project-id="{{ p.id }}">
-                <svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                    <circle cx="12" cy="12" r="10"></circle>
-                    <line x1="12" y1="16" x2="12" y2="12"></line>
-                    <line x1="12" y1="8" x2="12.01" y2="8"></line>
-                </svg>
-                <span>Details</span>
-            </button>
         </div>
 
     </div>
     {% endfor %}
 </div>
 
-<!-- Interactive Glass Detail Modal -->
-<div class="glass-modal-overlay" id="projectModal" aria-hidden="true" role="dialog" aria-modal="true">
-    <div class="glass-modal-dialog">
-        <div class="modal-header">
-            <div class="modal-title-wrap">
-                <span class="modal-category-badge" id="modalCategory">Category</span>
-                <h2 class="modal-title" id="modalTitle">Project Title</h2>
-            </div>
-            <button class="modal-close-btn" id="modalCloseBtn" aria-label="Close project modal">
-                <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                    <line x1="18" y1="6" x2="6" y2="18"></line>
-                    <line x1="6" y1="6" x2="18" y2="18"></line>
-                </svg>
-            </button>
-        </div>
-
-        <div class="modal-body">
-            <div class="modal-section">
-                <h4 class="modal-section-title">Overview & Architecture</h4>
-                <p class="modal-long-desc" id="modalLongDesc"></p>
-            </div>
-
-            <div class="modal-section">
-                <h4 class="modal-section-title">Key Highlights & Capabilities</h4>
-                <ul class="modal-highlights-list" id="modalHighlights"></ul>
-            </div>
-
-            <div class="modal-section">
-                <h4 class="modal-section-title">Technologies & Tools</h4>
-                <div class="modal-tags-wrap" id="modalTags"></div>
-            </div>
-        </div>
-
-        <div class="modal-footer" id="modalFooter">
-            <!-- Dynamic Action Links -->
-        </div>
-    </div>
-</div>
-
-{% endblock %}
-
-{% block extra_scripts %}
+<!-- Dynamic Filter Script -->
 <script>
-    // Embedded JSON data for modal functionality
-    const projectsData = {{ projects|tojson }};
+    document.addEventListener('DOMContentLoaded', () => {
+        const filterBtns = document.querySelectorAll('.filter-btn');
+        const projectCards = document.querySelectorAll('.project-glass-card');
 
-    // Category Filter Functionality
-    const filterButtons = document.querySelectorAll('.filter-btn');
-    const projectCards = document.querySelectorAll('.project-glass-card');
+        filterBtns.forEach(btn => {
+            btn.addEventListener('click', () => {
+                filterBtns.forEach(b => b.classList.remove('active'));
+                btn.classList.add('active');
 
-    filterButtons.forEach(btn => {
-        btn.addEventListener('click', () => {
-            filterButtons.forEach(b => b.classList.remove('active'));
-            btn.classList.add('active');
+                const filter = btn.getAttribute('data-filter');
 
-            const filterValue = btn.getAttribute('data-filter');
-
-            projectCards.forEach(card => {
-                const cardCategory = card.getAttribute('data-category');
-                if (filterValue === 'all' || cardCategory === filterValue) {
-                    card.style.display = 'flex';
-                    card.style.animation = 'fadeInUp 0.4s ease forwards';
-                } else {
-                    card.style.display = 'none';
-                }
+                projectCards.forEach(card => {
+                    const category = card.getAttribute('data-category');
+                    if (filter === 'all' || category === filter) {
+                        card.style.display = 'flex';
+                    } else {
+                        card.style.display = 'none';
+                    }
+                });
             });
         });
-    });
-
-    // Glass Modal Handlers
-    const modalOverlay = document.getElementById('projectModal');
-    const modalCloseBtn = document.getElementById('modalCloseBtn');
-    const modalCategory = document.getElementById('modalCategory');
-    const modalTitle = document.getElementById('modalTitle');
-    const modalLongDesc = document.getElementById('modalLongDesc');
-    const modalHighlights = document.getElementById('modalHighlights');
-    const modalTags = document.getElementById('modalTags');
-    const modalFooter = document.getElementById('modalFooter');
-
-    function openModal(projectId) {
-        const project = projectsData.find(p => p.id === projectId);
-        if (!project) return;
-
-        modalCategory.textContent = project.category;
-        if (project.is_design) {
-            modalCategory.className = 'modal-category-badge badge-figma';
-        } else {
-            modalCategory.className = 'modal-category-badge';
-        }
-
-        modalTitle.textContent = project.title;
-        modalLongDesc.textContent = project.long_desc || project.desc;
-
-        // Populate Highlights
-        modalHighlights.innerHTML = '';
-        if (project.highlights && project.highlights.length > 0) {
-            project.highlights.forEach(h => {
-                const li = document.createElement('li');
-                li.textContent = h;
-                modalHighlights.appendChild(li);
-            });
-        }
-
-        // Populate Tags
-        modalTags.innerHTML = '';
-        project.tags.forEach(t => {
-            const span = document.createElement('span');
-            span.className = 'tech-tag';
-            span.textContent = t;
-            modalTags.appendChild(span);
-        });
-
-        // Populate Action Links
-        modalFooter.innerHTML = '';
-        if (project.figma_link) {
-            const figmaBtn = document.createElement('a');
-            figmaBtn.href = project.figma_link;
-            figmaBtn.target = '_blank';
-            figmaBtn.rel = 'noopener noreferrer';
-            figmaBtn.className = 'card-btn btn-figma';
-            figmaBtn.innerHTML = `
-                <svg viewBox="0 0 24 24" width="14" height="14" fill="currentColor">
-                    <path d="M8 24c2.21 0 4-1.79 4-4v-4H8c-2.21 0-4 1.79-4 4s1.79 4 4 4zm0-20C5.79 4 4 5.79 4 8s1.79 4 4 4h4V4H8zm8 0h-4v8h4c2.21 0 4-1.79 4-4s-1.79-4-4-4zm0 8h-4v8h4c2.21 0 4-1.79 4-4s-1.79-4-4-4zM8 12c-2.21 0-4 1.79-4 4s1.79 4 4 4h4v-8H8z"/>
-                </svg>
-                <span>Open in Figma</span>
-            `;
-            modalFooter.appendChild(figmaBtn);
-        }
-
-        if (project.demo_link && !project.is_design) {
-            const demoBtn = document.createElement('a');
-            demoBtn.href = project.demo_link;
-            demoBtn.target = '_blank';
-            demoBtn.rel = 'noopener noreferrer';
-            demoBtn.className = 'card-btn btn-live';
-            demoBtn.innerHTML = `
-                <svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                    <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path>
-                    <polyline points="15 3 21 3 21 9"></polyline>
-                    <line x1="10" y1="14" x2="21" y2="3"></line>
-                </svg>
-                <span>Live Deployment</span>
-            `;
-            modalFooter.appendChild(demoBtn);
-        }
-
-        if (project.github_link) {
-            const ghBtn = document.createElement('a');
-            ghBtn.href = project.github_link;
-            ghBtn.target = '_blank';
-            ghBtn.rel = 'noopener noreferrer';
-            ghBtn.className = 'card-btn btn-github';
-            ghBtn.innerHTML = `
-                <svg viewBox="0 0 24 24" width="14" height="14" fill="currentColor">
-                    <path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0024 12c0-6.63-5.37-12-12-12z"/>
-                </svg>
-                <span>View Source Code</span>
-            `;
-            modalFooter.appendChild(ghBtn);
-        }
-
-        modalOverlay.classList.add('is-open');
-        modalOverlay.setAttribute('aria-hidden', 'false');
-        document.body.style.overflow = 'hidden';
-    }
-
-    function closeModal() {
-        modalOverlay.classList.remove('is-open');
-        modalOverlay.setAttribute('aria-hidden', 'true');
-        document.body.style.overflow = '';
-    }
-
-    document.querySelectorAll('.modal-trigger').forEach(trigger => {
-        trigger.addEventListener('click', () => {
-            const projectId = trigger.getAttribute('data-project-id');
-            openModal(projectId);
-        });
-    });
-
-    if (modalCloseBtn) {
-        modalCloseBtn.addEventListener('click', closeModal);
-    }
-
-    if (modalOverlay) {
-        modalOverlay.addEventListener('click', (e) => {
-            if (e.target === modalOverlay) {
-                closeModal();
-            }
-        });
-    }
-
-    document.addEventListener('keydown', (e) => {
-        if (e.key === 'Escape' && modalOverlay.classList.contains('is-open')) {
-            closeModal();
-        }
     });
 </script>
+
 {% endblock %}
